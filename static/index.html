@@ -1,0 +1,112 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Miso Calculator</title>
+    <style>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+      body {
+        min-height: 100dvh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: radial-gradient(ellipse at top, #1a1a2e 0%, #0d0d0d 100%);
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      }
+
+      .calc {
+        width: 320px;
+        border-radius: 28px;
+        overflow: hidden;
+        box-shadow:
+          0 40px 80px rgba(0,0,0,.6),
+          inset 0 1px 0 rgba(255,255,255,.08);
+        background: #1c1c1e;
+      }
+
+      .calc-title {
+        text-align: center;
+        color: rgba(255,255,255,.55);
+        font-size: .85rem;
+        font-weight: 500;
+        letter-spacing: .12em;
+        text-transform: uppercase;
+        margin-bottom: 14px;
+      }
+
+      /* ── Display ── */
+      .display {
+        padding: 28px 24px 16px;
+        background: #1c1c1e;
+        text-align: right;
+        min-height: 110px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+      }
+
+      .display-text {
+        color: #ffffff;
+        font-size: clamp(2rem, 10vw, 3.2rem);
+        font-weight: 200;
+        letter-spacing: -1px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        max-width: 100%;
+      }
+
+      /* ── Button grid ── */
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1px;
+        background: #3a3a3c;
+        border-top: 1px solid #3a3a3c;
+      }
+
+      .btn {
+        appearance: none;
+        border: none;
+        cursor: pointer;
+        font-size: 1.35rem;
+        font-weight: 400;
+        height: 78px;
+        transition: filter 80ms ease, transform 80ms ease;
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      .btn:active {
+        filter: brightness(1.35);
+        transform: scale(0.94);
+      }
+
+      /* number keys */
+      .btn.num  { background: #2c2c2e; color: #ffffff; }
+
+      /* function keys  (AC / +/- / %) */
+      .btn.fn   { background: #636366; color: #000000; font-weight: 500; }
+
+      /* operator keys */
+      .btn.op   { background: #ff9f0a; color: #ffffff; font-weight: 500; }
+      .btn.op:hover { background: #ffb340; }
+
+      /* equals */
+      .btn.eq   { background: #ff9f0a; color: #ffffff; font-weight: 500; }
+      .btn.eq:hover { background: #ffb340; }
+
+      /* zero spans two columns */
+      .btn.zero {
+        grid-column: span 2;
+        text-align: left;
+        padding-left: 28px;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="index.js" type="module"></script>
+  </body>
+</html>
